@@ -67,7 +67,7 @@ Removing the package does not revoke access. In Stuga, revoke the connection or 
 
 - Stuga's tools go through the adapter's `mcp` proxy tool, not one Pi tool each: the adapter registers servers added at runtime as proxy-only. To give the model direct tools, add your own `stuga` entry to `~/.pi/agent/mcp-adapter.json` with `"directTools": true`; that entry wins over this package's registration.
 - With OAuth, the workspace's conventions are not in the prompt; the model reads them with `workspaces` action `instructions` before writing.
-- Built against Pi 0.87.1 and pi-mcp-adapter 3.1.0.
+- Tested end to end against Pi 0.87.1 and pi-mcp-adapter 3.1.0, with OAuth sign-in and with an agent key.
 
 ## Development
 
