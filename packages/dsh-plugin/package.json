@@ -1,0 +1,49 @@
+{
+  "name": "@stuga/dsh-plugin",
+  "version": "0.2.0",
+  "description": "Connect a DeepSeek Harness profile to Stuga: its MCP tools, the key's workspace and its conventions in the system prompt, and playbook skills for reviewed edits.",
+  "license": "MIT",
+  "type": "module",
+  "main": "index.js",
+  "exports": {
+    ".": "./index.js"
+  },
+  "files": [
+    "index.js",
+    "cordis.patch.yml",
+    "skills/",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "dsh-plugin",
+    "deepseek-harness",
+    "stuga",
+    "mcp"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stuga-dev/agent-plugins.git",
+    "directory": "packages/dsh-plugin"
+  },
+  "engines": {
+    "node": "^22.19.0 || >=24.0.0"
+  },
+  "scripts": {
+    "pretest": "node ../../scripts/sync-skills.mjs .",
+    "test": "node --test \"test/**/*.test.mjs\"",
+    "prepack": "node ../../scripts/sync-skills.mjs ."
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "dependencies": {},
+  "publishConfig": {
+    "access": "public"
+  },
+  "stuga": {
+    "skills": "skills"
+  }
+}

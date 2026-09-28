@@ -1,0 +1,5 @@
+node_modules/
+*.tgz
+.DS_Store
+# Copied from skills/ by scripts/sync-skills.mjs (each package's `stuga.skills`)
+packages/dsh-plugin/skills/

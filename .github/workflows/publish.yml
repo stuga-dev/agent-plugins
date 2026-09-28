@@ -1,0 +1,47 @@
+name: publish
+
+# A tag <package>-v<version> (dsh-plugin-v0.2.1) publishes packages/<package>
+# to npm through trusted publishing; the tag must match its package.json.
+on:
+  push:
+    tags: ["*-v*"]
+
+permissions: {}
+
+jobs:
+  test:
+    uses: ./.github/workflows/ci.yml
+    permissions:
+      contents: read
+
+  npm:
+    needs: test
+    runs-on: ubuntu-latest
+    environment: publish
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: pnpm/action-setup@v6
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          registry-url: https://registry.npmjs.org
+          package-manager-cache: false
+      - run: pnpm install --frozen-lockfile
+      - name: Match the tag to its package
+        id: pkg
+        env:
+          TAG: ${{ github.ref_name }}
+        run: |
+          dir="packages/${TAG%-v*}"
+          version="${TAG##*-v}"
+          test -f "$dir/package.json" || { echo "no package at $dir"; exit 1; }
+          actual=$(node -p "require('./$dir/package.json').version")
+          test "$actual" = "$version" || { echo "$dir is $actual, tag says $version"; exit 1; }
+          echo "dir=$dir" >> "$GITHUB_OUTPUT"
+      - run: npm publish
+        working-directory: ${{ steps.pkg.outputs.dir }}
