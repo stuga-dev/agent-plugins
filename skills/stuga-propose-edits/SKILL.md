@@ -29,7 +29,7 @@ To create a document: `docs_create` with `workspace_id` and `title` (optional `p
 ## Reading the result — this is the important part
 
 - **"Proposed — … This is SUCCESS: do NOT retry"**: the change is parked for review, because this document waits for review (the default). Continue your work. Your later `read` calls already include this pending edit. Do not send it again, and do not "repair" the document because the raw text has not changed yet.
-- **"Applied (server seq N)"**: this document is set to apply agent changes at once, so the change landed; the owner was notified and can revert it.
+- **"Applied (server seq N)"**: this document is set to let AI edits apply directly, so the change landed without waiting for review; the owner was notified and can revert it.
 - **"noop"**: the document already had that content.
 - **409 / "stale" / "document changed"**: the document moved under you. Re-read once, then retry the same edit once. If it fails again, stop and report.
 - **"not found" / "ambiguous" for `find`**: your `find` text did not match exactly once. Re-read, pick a longer unique snippet, retry.
