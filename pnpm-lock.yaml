@@ -167,3 +167,5 @@ importers:
   .: {}
 
   packages/dsh-plugin: {}
+
+  packages/pi-package: {}

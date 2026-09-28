@@ -235,6 +235,6 @@ test("package.json declares the extension for Pi and is listed in the gallery", 
   assert.equal(pkg.name, "@stuga/pi-package");
   assert.ok(pkg.keywords.includes("pi-package"), "the pi-package keyword lists it on pi.dev/packages");
   assert.deepEqual(pkg.pi.extensions, ["./extensions/stuga.js"]);
-  assert.equal(pkg.dependencies, undefined, "the package ships with no runtime dependencies");
+  assert.deepEqual(pkg.dependencies, {}, "the package ships with no runtime dependencies");
   assert.ok(pkg.files.includes("playbooks/"));
 });

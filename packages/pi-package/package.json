@@ -34,16 +34,9 @@
       "./extensions/stuga.js"
     ]
   },
+  "dependencies": {},
   "stuga": {
     "skills": "playbooks"
-  },
-  "peerDependencies": {
-    "pi-mcp-adapter": ">=3.1.0"
-  },
-  "peerDependenciesMeta": {
-    "pi-mcp-adapter": {
-      "optional": true
-    }
   },
   "publishConfig": {
     "access": "public"
