@@ -33,7 +33,9 @@ git tag -a dsh-plugin-v0.2.1 -m "dsh-plugin 0.2.1"
 git push origin dsh-plugin-v0.2.1
 ```
 
-The `publish` workflow runs the tests and publishes that package to npm with provenance. Tags are immutable once pushed.
+The `publish` workflow runs the tests and, once approved, publishes that package to npm with provenance. Tags are immutable once pushed.
+
+A new package's first version is published by hand, since npm trusts a workflow only for a package that already exists: `npm publish` in its directory, then `npm trust github <name> --file publish.yml --repo stuga-dev/agent-plugins --env publish --allow-publish` and `npm access set mfa=publish <name>`. Its tag then only records the release; the workflow sees the version on npm and skips publishing.
 
 ## License
 

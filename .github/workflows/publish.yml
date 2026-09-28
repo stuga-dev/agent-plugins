@@ -43,5 +43,13 @@ jobs:
           actual=$(node -p "require('./$dir/package.json').version")
           test "$actual" = "$version" || { echo "$dir is $actual, tag says $version"; exit 1; }
           echo "dir=$dir" >> "$GITHUB_OUTPUT"
-      - run: npm publish
+          # A package's first version is published by hand (npm trusts a workflow only
+          # for a package that exists); its tag then only records it.
+          name=$(node -p "require('./$dir/package.json').name")
+          if npm view "$name@$version" version >/dev/null 2>&1; then
+            echo "$name@$version is already on npm"
+            echo "published=true" >> "$GITHUB_OUTPUT"
+          fi
+      - if: steps.pkg.outputs.published != 'true'
+        run: npm publish
         working-directory: ${{ steps.pkg.outputs.dir }}
