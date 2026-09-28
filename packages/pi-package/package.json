@@ -1,0 +1,51 @@
+{
+  "name": "@stuga/pi-package",
+  "version": "0.1.0",
+  "description": "Connect Pi to Stuga: its MCP tools through pi-mcp-adapter, with OAuth sign-in or an agent key, the workspace's conventions in the system prompt, and playbook skills for reviewed edits.",
+  "license": "MIT",
+  "type": "module",
+  "files": [
+    "extensions/",
+    "playbooks/",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "pi-package",
+    "pi",
+    "stuga",
+    "mcp"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stuga-dev/agent-plugins.git",
+    "directory": "packages/pi-package"
+  },
+  "engines": {
+    "node": ">=22.19.0"
+  },
+  "scripts": {
+    "pretest": "node ../../scripts/sync-skills.mjs .",
+    "test": "node --test \"test/**/*.test.mjs\"",
+    "prepack": "node ../../scripts/sync-skills.mjs ."
+  },
+  "pi": {
+    "extensions": [
+      "./extensions/stuga.js"
+    ]
+  },
+  "stuga": {
+    "skills": "playbooks"
+  },
+  "peerDependencies": {
+    "pi-mcp-adapter": ">=3.1.0"
+  },
+  "peerDependenciesMeta": {
+    "pi-mcp-adapter": {
+      "optional": true
+    }
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

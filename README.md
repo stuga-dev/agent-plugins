@@ -5,6 +5,7 @@ Packages that connect coding agents to [Stuga](https://github.com/stuga-dev/stug
 | Package | Host | Install |
 |---|---|---|
 | [`@stuga/dsh-plugin`](packages/dsh-plugin) | [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) | `dsh plugin --profile web add @stuga/dsh-plugin` |
+| [`@stuga/pi-package`](packages/pi-package) | [Pi](https://pi.dev) | `pi install npm:pi-mcp-adapter && pi install npm:@stuga/pi-package` |
 
 Claude, Codex and Antigravity need no package: Stuga's **Settings → Your own AI** sets them up, and the Claude plugin ships from [stuga-plugin](https://github.com/stuga-dev/stuga-plugin).
 

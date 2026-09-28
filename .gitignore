@@ -3,3 +3,4 @@ node_modules/
 .DS_Store
 # Copied from skills/ by scripts/sync-skills.mjs (each package's `stuga.skills`)
 packages/dsh-plugin/skills/
+packages/pi-package/playbooks/
