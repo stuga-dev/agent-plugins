@@ -18,7 +18,7 @@ Everything Stuga enforces (the run ledger, access control inside search, per-cal
 
 You need a running Stuga node and a DeepSeek Harness installation (Node `^22.19 || >=24`, `pnpm` on `PATH`).
 
-1. In Stuga, open **Settings → Your own AI**, choose **DeepSeek Harness**, and mint an agent key. Name it after the harness (that name is what reviewers see in the inbox). Narrow it to folders, make it read-only, or give it an expiry as you see fit. The key reaches every workspace you belong to; one narrowed to folders stays in the workspace it was minted in. The tab prints the command and environment lines below with the key filled in.
+1. In Stuga, open **Settings → Your AI agents**, choose **DeepSeek Harness**, and mint an agent key. Name it after the harness (that name is what reviewers see in the inbox). Narrow it to folders, make it read-only, or give it an expiry as you see fit. The key reaches every workspace you belong to; one narrowed to folders stays in the workspace it was minted in. The tab prints the command and environment lines below with the key filled in.
 
 2. Install the plugin into the profile you run (the web UI profile is `web`):
 

@@ -43,4 +43,4 @@ Structured databases show up in listings with `doc_type: "database"`; their rows
 
 - Synthesize; do not paste passages back verbatim.
 - Cite every asserted fact with its document title and a link: the result's `url`, or `{{STUGA_URL}}/doc/<doc_id>`.
-- If `retrieve` errors with "AI chat is disabled on this node", fall back to `search` plus `markdown` reads and say the ranking is keyword-only.
+- If `retrieve` errors with "Semantic search is off on this node", fall back to `search` plus `markdown` reads and say the ranking is keyword-only.

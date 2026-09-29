@@ -43,7 +43,7 @@ Start Pi and run `/mcp-auth stuga`. Approve the request in the browser; the adap
 
 ### Or use an agent key
 
-In Stuga, open **Settings → Your own AI** and create an agent key. Narrow it to folders, make it read-only or give it an expiry as you see fit. Then:
+In Stuga, open **Settings → Your AI agents** and create an agent key. Narrow it to folders, make it read-only or give it an expiry as you see fit. Then:
 
 ```sh
 export STUGA_API_KEY=vk_…
@@ -61,7 +61,7 @@ Ask Pi about your documents, or to change them. It calls Stuga through the adapt
 pi remove npm:@stuga/pi-package
 ```
 
-Removing the package does not revoke access. In Stuga, revoke the connection or the key under **Settings → Your own AI → Connected agents**.
+Removing the package does not revoke access. In Stuga, revoke the connection or the key under **Settings → Your AI agents → Connected agents**.
 
 ## Limits
 

@@ -7,7 +7,7 @@
 #
 # Connection settings come from the launch environment or $DSH_HOME/.env:
 #   STUGA_URL      origin of the Stuga node (default http://127.0.0.1:8787)
-#   STUGA_API_KEY  an agent key (vk_…) minted in Stuga under Settings → Your own AI
+#   STUGA_API_KEY  an agent key (vk_…) minted in Stuga under Settings → Your AI agents
 #
 # Override either row by id in $DSH_HOME/profiles/<name>/cordis.patch.yml —
 # a patch replaces the whole `config` of a row, so restate every key.

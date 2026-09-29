@@ -259,7 +259,7 @@ export function apply(ctx, config) {
     // Not fatal: the MCP row logs its own connection failure and dsh keeps
     // booting. Say why the Stuga tools are missing, in one line.
     console.warn(
-      "[@stuga/dsh-plugin] STUGA_API_KEY is not set; mint an agent key in Stuga under Settings → Your own AI and put it in the launch environment or $DSH_HOME/.env.",
+      "[@stuga/dsh-plugin] STUGA_API_KEY is not set; mint an agent key in Stuga under Settings → Your AI agents and put it in the launch environment or $DSH_HOME/.env.",
     );
   }
 
