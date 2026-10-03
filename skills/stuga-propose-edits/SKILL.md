@@ -41,6 +41,12 @@ A read-only key is offered only the reading tools, so `markdown_edit` and the ot
 
 Check decisions with `markdown` `action: "status"` (accepted, rejected, conflicted) or the `events` tool (run.decided, run.reverted). A rejected hunk is a decision, not an error: do not re-propose it unchanged.
 
+## Changes requested
+
+A reviewer can request changes: a rejection with a note saying what should change. Your reads of that document then open with a `=== CHANGES REQUESTED … ===` block (what was rejected, and the note) until you propose there again, and your next proposal there carries it once more; `status` keeps listing it. Revise from the note: re-read the current text, then propose a new version of those passages only, and leave the rest of the document as it is. A rejection without a note means the change was not wanted; if it is unclear why, ask with `comments_add`.
+
+When you start work in a workspace you have written to before, or the user says they reviewed your changes, call `events` with `mine: true`: it lists the decisions on your own proposals across the workspace, the last 14 days of them, each `run.decided` with its `note`.
+
 ## Images
 
 Writing `![alt](https://…)` or a `data:` URI through `markdown_edit` or `markdown_append` is enough; the server downloads it and rewrites the link to a permanent path. Use `media_upload` with `workspace_id` and `doc_id` (`action: "upload"` with base64 `data`, or `action: "upload_from_url"` with `url`) only when you want the stored path before composing the edit. Pass `caption` to get `![alt](path "caption")`, which renders as a visible caption.
