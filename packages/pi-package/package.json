@@ -1,6 +1,6 @@
 {
   "name": "@stuga/pi-package",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Connect Pi to Stuga: its MCP tools through pi-mcp-adapter, with OAuth sign-in or an agent key, the workspace's conventions in the system prompt, and playbook skills for reviewed edits.",
   "license": "MIT",
   "type": "module",
