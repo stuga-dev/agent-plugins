@@ -80,6 +80,7 @@ A validation failure comes back as `rows_total`, `rows_failed` and up to 100 `er
 - A tool error means that ONE change was refused (bad column, missing row, type mismatch): fix the input and retry that change only. Never guess column names; re-read the schema.
 - Batch rows into one `insert_rows` call rather than one call per row: the database allows about 120 mutations per minute and your key shares one request budget with every session using it.
 - A read-only key is offered only the reading tools, so `databases_add` and `databases_change` are missing: tell the user what you would change.
+- **"CHANGES REQUESTED"** after a result or a read: the reviewer rejected earlier changes of yours here, with a note. Revise from the note; never resend those changes unchanged. `databases` action:status lists each rejection and its note.
 
 ## Ending the turn
 
