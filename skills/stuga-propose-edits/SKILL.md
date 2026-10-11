@@ -22,6 +22,8 @@ Stuga is at {{STUGA_URL}}. Tools are prefixed `mcp__{{SERVER}}__`. You never wri
 - `action: "cited_edits"` with `edits` (`[{ old_string, new_string }]`, each `old_string` matching exactly once) and optional `citations` (`[{ n, doc_id, title, heading_path?, content? }]`), which become footnotes when the edits land. Use it for several edits at once, or for edits grounded in `retrieve` passages.
 - `action: "write"` with `text` replaces the WHOLE document. Use only when rewriting everything on purpose.
 
+A to-do list is Markdown task items, `- [ ] Order flour` and `- [x] Clean the oven`: they become checkboxes people tick. A read gives them back as `* [ ]` and `* [x]`.
+
 `markdown_append` with `workspace_id`, `doc_id` and `text`, optionally `heading` to append at the end of that section. Touches nothing else; use it for notes, logs and memory.
 
 To create a document: `docs_create` with `workspace_id` and `title` (optional `parent_id`), then fill it with `markdown_edit` or `markdown_append`. The result carries the `instructions` that apply where you created it; follow them in your first edit. A new document waits for review like any other unless someone sets it to apply agent changes at once; the result of each edit says which happened.

@@ -16,7 +16,7 @@ Stuga is at {{STUGA_URL}}. Its tools are prefixed `mcp__{{SERVER}}__`.
 
 ## Two loops, pick by intent
 
-- **To find WHICH document**: `search` with `workspace_ids` and `q` (full-text + semantic; returns documents, not passages, each with its `workspace_id` and `url`). `docs` with `action: "list"` lists what you can reach in one workspace; pass `parent_id` to list one folder (`null` for the root). `folders` lists a workspace's folders.
+- **To find WHICH document**: `search` with `workspace_ids` and `q` (full-text + semantic; returns documents, not passages, each with its `workspace_id`, `url` and `updated_at`). A database is found by what its cells say too, such as an order number; answer from it with `query`. `docs` with `action: "list"` lists what you can reach in one workspace; pass `parent_id` to list one folder (`null` for the root). `folders` lists a workspace's folders.
 - **To answer FROM content across documents**: `retrieve` with `workspace_ids` and `q` (optional `limit` up to 12). It returns ranked passages with their source document, heading, `workspace_id` and `url`, already filtered to what this key may read. Answer from these passages, cite the document title and heading, and link each source with its `url`. If it returns nothing, say so; do not fall back to reading every document.
 
 To narrow either loop to a saved set: `collections` with `action: "list"` and a `workspace_id` gives each collection's `collection_id`; pass it to `search` or `retrieve` with exactly that one workspace in `workspace_ids`. `collections` with `action: "open"` shows a set's members.
